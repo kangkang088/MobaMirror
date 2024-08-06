@@ -37,6 +37,8 @@ namespace Mirror.Examples.NetworkRoom
         //    return true;
         //}
 
+        public GameObject sceneChooseMenu;
+
         public override void OnRoomStopClient()
         {
             base.OnRoomStopClient();
@@ -65,6 +67,7 @@ namespace Mirror.Examples.NetworkRoom
             base.OnRoomServerPlayersReady();
 #else
             showStartButton = true;
+            sceneChooseMenu.SetActive(true);
 #endif
         }
 
@@ -76,6 +79,8 @@ namespace Mirror.Examples.NetworkRoom
             {
                 // set to false to hide it in the game scene
                 showStartButton = false;
+
+                sceneChooseMenu.SetActive(false);
 
                 ServerChangeScene(GameplayScene);
             }
